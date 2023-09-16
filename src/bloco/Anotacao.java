@@ -15,6 +15,9 @@ public class Anotacao {
     Scanner sc = new Scanner(System.in);
 
     public Anotacao(String textosDigitados) {
+        if (textosDigitados == null || textosDigitados.trim().isEmpty()) {
+            throw new IllegalArgumentException("Texto da anotação não pode ser nulo ou vazio.");
+        }
         texto = textosDigitados;
         remover = false;
         data = LocalDate.now();
@@ -23,7 +26,11 @@ public class Anotacao {
 
     public void editar() {
         System.out.println("Digite o texto a ser editado: ");
-        texto = sc.nextLine();
+        String novoTexto = sc.nextLine();
+        if (novoTexto == null || novoTexto.trim().isEmpty()) {
+            throw new IllegalArgumentException("Texto da anotação não pode ser vazio.");
+        }
+        texto = novoTexto;
     }
 
     public void remover() {

@@ -60,6 +60,6 @@ public class BlocoDeNotas {
                 return anotacao;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Anotação não encontrada com ID: " + id);
     }
 }

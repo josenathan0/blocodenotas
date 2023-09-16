@@ -34,8 +34,13 @@ public class Main {
                     System.out.println("Você escolheu adicionar anotação! ");
                     System.out.println("Digite o texto:");
                     String texto = sc.nextLine();
-                    Anotacao anotacaoAdicionar = new Anotacao(texto);
-                    blocoDeNotas.adicionarAnotacao(anotacaoAdicionar);
+                    try {
+                        Anotacao anotacaoAdicionar = new Anotacao(texto);
+                        blocoDeNotas.adicionarAnotacao(anotacaoAdicionar);
+                        System.out.println("Anotação adicionada com sucesso!");
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Erro ao adicionar anotação: " + e.getMessage());
+                    }
                     break;
 
                 case BUSCAR_ANOTACAO:
